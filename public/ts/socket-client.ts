@@ -1,7 +1,6 @@
+
 (()=>{
 
-    const saludo: string = 'hola mundo'
+    // const socket = io();
 
-    console.log(saludo);
-
-})()
+})();

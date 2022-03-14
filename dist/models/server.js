@@ -5,12 +5,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const http_1 = __importDefault(require("http"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
         this.port = process.env.PORT || '8080';
+        this.server = http_1.default.createServer(this.app);
+        this.io = require('socket.io')(this.server);
+        // Middlewares
         this.middlewares();
+        // Rutas
         this.routes();
+        // Sockets
+        this.sockets();
+        // Listen
         this.listen();
     }
     middlewares() {
@@ -20,8 +28,15 @@ class Server {
     }
     routes() {
     }
+    sockets() {
+        this.io.on("connection", (socket) => {
+            console.log('Cliente conectado');
+            socket.disconnect();
+        });
+    }
+    ;
     listen() {
-        this.app.listen(this.port, () => {
+        this.server.listen(this.port, () => {
             console.log(`Listenner on port ${this.port}`);
         });
     }

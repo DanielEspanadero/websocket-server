@@ -1,6 +1,5 @@
 "use strict";
 (() => {
-    const saludo = 'hola mundo';
-    console.log(saludo);
+    // const socket = io();
 })();
 //# sourceMappingURL=socket-client.js.map
