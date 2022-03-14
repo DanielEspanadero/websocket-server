@@ -1,5 +1,3 @@
-import { io } from "socket.io-client";
-
 (() => {
 window.addEventListener('load', ()=>{
 
@@ -7,3 +5,4 @@ window.addEventListener('load', ()=>{
 
 });
 })();
+

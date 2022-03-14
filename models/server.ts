@@ -42,7 +42,7 @@ class Server {
         this.io.on("connection", (socket: any) => {
             console.log('Cliente conectado', socket.id);
             socket.on('disconnect', () => {
-                console.log('cliente desconectado');
+                console.log('cliente desconectado', socket.id);
             });
         });
     };

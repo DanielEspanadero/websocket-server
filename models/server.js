@@ -32,7 +32,7 @@ class Server {
         this.io.on("connection", (socket) => {
             console.log('Cliente conectado', socket.id);
             socket.on('disconnect', () => {
-                console.log('cliente desconectado', socket.id);
+                console.log('cliente desconectado');
             });
         });
     }
